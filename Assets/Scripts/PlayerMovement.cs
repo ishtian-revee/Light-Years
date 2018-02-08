@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-    public float speed;
-    private Vector3 direction;
+    public float speed;             // players speed
+    private Vector3 direction;      // movement directions
     private Vector3 leftDiagonal;
     private Vector3 rightDiagonal;
 
@@ -14,14 +12,15 @@ public class PlayerMovement : MonoBehaviour {
 
         leftDiagonal = new Vector3(-2, 1, 0);
         rightDiagonal = new Vector3(2, 1, 0);
-        direction = rightDiagonal;
+        direction = rightDiagonal;              // initially direction is in right diagonal
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        // direction changes for key inputs
+        if (Input.GetKeyDown(KeyCode.A))
         {
             if (direction == leftDiagonal)
             {
@@ -33,6 +32,7 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
 
+        // movement amount calculations and changes for each frames
         float amountToMove = speed * Time.deltaTime;
         transform.Translate(direction * amountToMove);
     }

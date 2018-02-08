@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour {
 
-    public Transform player;            // A reffernce to the player's transform
+    public Transform player;    // A refference to the player's transform
 
     // Use this for initialization
     void Start()
